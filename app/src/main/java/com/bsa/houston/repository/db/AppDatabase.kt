@@ -1,10 +1,11 @@
-package com.bsa.houston.data;
+package com.bsa.houston.repository.db;
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
+import com.bsa.houston.repository.data.Post
 
 /**
  * The Room database for this app
@@ -21,7 +22,9 @@ abstract class AppDatabase : RoomDatabase() {
 
         fun getInstance(context: Context): AppDatabase {
             return instance ?: synchronized(this) {
-                instance ?: buildDatabase(context).also { instance = it }
+                instance
+                    ?: buildDatabase(context)
+                        .also { instance = it }
             }
         }
 

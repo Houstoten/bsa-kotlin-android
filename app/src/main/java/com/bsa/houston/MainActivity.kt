@@ -2,20 +2,8 @@ package com.bsa.houston
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.ArrayAdapter
-import android.widget.ListAdapter
-import android.widget.ListView
-import androidx.lifecycle.Observer
-import androidx.navigation.Navigation
-import androidx.navigation.ui.NavigationUI
 import androidx.navigation.Navigation.findNavController
-import androidx.navigation.ui.setupWithNavController
-import com.bsa.houston.data.Post
-import com.bsa.houston.data.PostRepository
-import com.bsa.houston.posts.PostsFragment
-import com.bsa.houston.posts.PostsViewModel
-import com.bsa.houston.posts.PostsViewModelFactory
-import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.bsa.houston.view.PostsFragment
 
 class MainActivity : AppCompatActivity() {
 

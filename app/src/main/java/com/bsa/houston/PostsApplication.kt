@@ -1,12 +1,11 @@
 package com.bsa.houston
 
 import android.app.Application
-import android.content.Context
 import androidx.room.Room
-import com.bsa.houston.api.Api
-import com.bsa.houston.data.AppDatabase
-import com.bsa.houston.data.PostRepository
-import com.bsa.houston.posts.PostsViewModel
+import com.bsa.houston.repository.api.Api
+import com.bsa.houston.repository.db.AppDatabase
+import com.bsa.houston.repository.PostRepository
+import com.bsa.houston.viewmodel.PostsViewModel
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

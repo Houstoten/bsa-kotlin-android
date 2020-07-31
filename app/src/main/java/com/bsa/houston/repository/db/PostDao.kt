@@ -1,10 +1,11 @@
-package com.bsa.houston.data
+package com.bsa.houston.repository.db
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import com.bsa.houston.repository.data.Post
 
 @Dao
 interface PostDao {
@@ -13,9 +14,9 @@ interface PostDao {
     fun getPosts(): LiveData<List<Post>>
 
     @Query("SELECT * FROM posts WHERE id = :postId")
-    fun getPost(postId: Int): LiveData<Post>
+    fun getPost(postId: Long): LiveData<Post>
 
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertAll(plants: List<Post>): Void
+    suspend fun insertAll(posts: List<Post>): Void
 }
