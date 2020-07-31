@@ -10,5 +10,10 @@
                 app:enterAnim="@anim/slide_in_left" app:exitAnim="@anim/slide_in_left"/>
     </fragment>
     <fragment android:id="@+id/postsFragment" android:name="com.bsa.houston.view.PostsFragment"
-              android:label="posts_fragment" tools:layout="@layout/posts_fragment"/>
+              android:label="posts_fragment" tools:layout="@layout/posts_fragment">
+        <action android:id="@+id/action_postsFragment_to_postExtendedFragment"
+                app:destination="@id/postExtendedFragment"/>
+    </fragment>
+    <fragment android:id="@+id/postExtendedFragment" android:name="com.bsa.houston.view.PostExtendedFragment"
+              android:label="post_extended_fragment" tools:layout="@layout/post_extended_fragment"/>
 </navigation>

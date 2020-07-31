@@ -16,7 +16,9 @@ interface PostDao {
     @Query("SELECT * FROM posts WHERE id = :postId")
     fun getPost(postId: Long): LiveData<Post>
 
-
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertAll(posts: List<Post>): Void
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertOne(post: Post): Void
 }

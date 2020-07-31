@@ -1,6 +1,7 @@
 package com.bsa.houston.repository.data
 
 data class CollectedById(
-    val user: User,
-    val post: Post
+    var user: User?,
+    var post: Post?,
+    var comments: List<Comment>?
 )
