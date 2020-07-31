@@ -1,17 +1,22 @@
-package com.bsa.houston.data;
+package com.bsa.houston.repository.db;
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
+import com.bsa.houston.repository.data.Comment
+import com.bsa.houston.repository.data.Post
+import com.bsa.houston.repository.data.User
 
 /**
  * The Room database for this app
  */
-@Database(entities = [Post::class], version = 1, exportSchema = false)
+@Database(entities = [Post::class, User::class, Comment::class], version = 2, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun postDao(): PostDao
+    abstract fun userDao(): UserDao
+    abstract fun commentDao(): CommentDao
 
     companion object {
 
@@ -21,7 +26,9 @@ abstract class AppDatabase : RoomDatabase() {
 
         fun getInstance(context: Context): AppDatabase {
             return instance ?: synchronized(this) {
-                instance ?: buildDatabase(context).also { instance = it }
+                instance
+                    ?: buildDatabase(context)
+                        .also { instance = it }
             }
         }
 

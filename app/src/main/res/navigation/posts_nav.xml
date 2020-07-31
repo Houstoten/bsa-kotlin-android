@@ -5,5 +5,15 @@
             app:startDestination="@id/main_activity_host">
 
     <fragment android:id="@+id/main_activity_host" android:name="androidx.navigation.fragment.NavHostFragment"
-              tools:layout="@layout/activity_main"/>
+              tools:layout="@layout/activity_main">
+        <action android:id="@+id/action_main_activity_host_to_postsFragment" app:destination="@id/postsFragment"
+                app:enterAnim="@anim/slide_in_left" app:exitAnim="@anim/slide_in_left"/>
+    </fragment>
+    <fragment android:id="@+id/postsFragment" android:name="com.bsa.houston.view.PostsFragment"
+              android:label="posts_fragment" tools:layout="@layout/posts_fragment">
+        <action android:id="@+id/action_postsFragment_to_postExtendedFragment"
+                app:destination="@id/postExtendedFragment"/>
+    </fragment>
+    <fragment android:id="@+id/postExtendedFragment" android:name="com.bsa.houston.view.PostExtendedFragment"
+              android:label="post_extended_fragment" tools:layout="@layout/post_extended_fragment"/>
 </navigation>
